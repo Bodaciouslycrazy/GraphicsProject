@@ -1,0 +1,55 @@
+newmtl Default
+Kd 0.290196 0.341176 0.458824
+Ke 0 0 0
+Ka 0.8 0.8 0.8
+Ks 0.15 0.15 0.15
+Ns 349
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl Engine
+Kd 0.643137 0.643137 0.643137
+Ke 0 0 0
+Ka 0.42 0.42 0.42
+Ks 0.625 0.625 0.625
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl EngineInternal
+Kd 0 0 0
+Ke 0 0 0
+Ka 0 0 0
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl Glass
+Kd 0.572549 0.890196 0.996078
+Ke 0 0 0
+Ka 1 1 1
+Ks 1 1 1
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl guns
+Kd 0 0 0
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
