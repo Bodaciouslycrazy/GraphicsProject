@@ -12,12 +12,12 @@ public class CubeDrag : MonoBehaviour {
 	private void FixedUpdate()
 	{
 		Vector3 vel = rb.velocity;
-		//Vector3 norm = transform.up;
+        //Vector3 norm = transform.up;
 
-		//vel = Vector3.Project(vel, norm);
+        //vel = Vector3.Project(vel, norm);
 
-		Vector3 force =
-			GetAxisDrag(Vector3.Project(vel, transform.up), CubeSurfaceArea.y) +
+        Vector3 force =
+            GetAxisDrag(Vector3.Project(vel, transform.up), CubeSurfaceArea.y) +
 			GetAxisDrag(Vector3.Project(vel, transform.right), CubeSurfaceArea.x) +
 			GetAxisDrag(Vector3.Project(vel, transform.forward), CubeSurfaceArea.z);
 
@@ -26,8 +26,8 @@ public class CubeDrag : MonoBehaviour {
 
 	private Vector3 GetAxisDrag( Vector3 velocity, float surfaceArea)
 	{
-		velocity = -1 * velocity * surfaceArea * AerodynamicConstant;
-		velocity = velocity * velocity.magnitude;
-		return velocity;
+        velocity = -1 * velocity * surfaceArea * AerodynamicConstant;
+        velocity = velocity * velocity.magnitude;
+        return velocity;
 	}
 }

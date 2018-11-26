@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Following: {fileID: 1971194125}
-  PositionLerp: 0.15
+  PositionLerp: 0.2
   RotationLerp: 0.15
 --- !u!114 &534669907
 MonoBehaviour:
@@ -1666,6 +1666,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 1ea713348e5fd5347af641adfdfdd484,
     type: 3}
   m_PrefabInternal: {fileID: 1857710842}
+--- !u!1 &1951453844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 94aa1cf835d47774da62ee0a9949c618,
+    type: 3}
+  m_PrefabInternal: {fileID: 357145432}
+--- !u!114 &1951453848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951453844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b3f543ac55ad54895c737422707291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rotation: {x: 0, y: 0, z: 20}
 --- !u!1 &1961988954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,9 +1730,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961988954}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.01
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.0005
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1727,7 +1744,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961988954}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 77ddc1d91cd69294ba6ac48bb1568a52, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1745,11 +1762,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1961988956}
-  rollSpeed: 2
-  rollAccel: 5
-  pitchSpeed: 1.5
+  rollSpeed: 100
+  rollAccel: 50
+  pitchSpeed: 150
   pitchAccel: 5
-  thrust: 1
+  thrust: 0.1
 --- !u!114 &1961988959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,8 +1778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44150263e69f503478a758675fdcdd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeSurfaceArea: {x: 0.24, y: 0.001, z: 0.17}
-  AerodynamicConstant: 2
+  CubeSurfaceArea: {x: 0.2, y: 3.5, z: 0.2}
+  AerodynamicConstant: 0.25
   rb: {fileID: 1961988956}
 --- !u!1 &1971194124
 GameObject:
