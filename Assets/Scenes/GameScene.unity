@@ -1713,14 +1713,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961988954}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1961988957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   rollAccel: 5
   pitchSpeed: 1.5
   pitchAccel: 5
-  thrust: 20
+  thrust: 1
 --- !u!114 &1961988959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44150263e69f503478a758675fdcdd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeSurfaceArea: {x: 1, y: 5, z: 0.2}
+  CubeSurfaceArea: {x: 0.24, y: 0.001, z: 0.17}
   AerodynamicConstant: 2
   rb: {fileID: 1961988956}
 --- !u!1 &1971194124
