@@ -28,13 +28,14 @@ public class Rotator : MonoBehaviour {
 		targVect.z = -1 * Input.GetAxisRaw("Horizontal") * rollSpeed;
 		targVect.x = Input.GetAxisRaw("Vertical") * pitchSpeed;
 
-		Vector3 velDiff = targVect - transform.InverseTransformVector(rb.angularVelocity);
+        Vector3 velDiff = targVect - transform.InverseTransformVector(rb.angularVelocity);
 
-		Vector3 accel = velDiff / Time.fixedDeltaTime;
-		if (accel.z > rollAccel)
-			accel.z = rollAccel;
-		else if (accel.z < -rollAccel)
-			accel.z = -rollAccel;
+		Vector3 accel = Vector3.Scale(velDiff, new Vector3(1.0f, 0.01f, 1.0f)) / Time.fixedDeltaTime;
+
+        if (accel.z > rollAccel)
+            accel.z = rollAccel;
+        else if (accel.z < -rollAccel)
+            accel.z = -rollAccel;
 
 		if (accel.x > pitchAccel)
 			accel.x = pitchAccel;
