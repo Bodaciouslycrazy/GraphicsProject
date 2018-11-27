@@ -9,11 +9,16 @@ public class Rotator : MonoBehaviour {
 	public float rollAccel = 100f;
 	public float pitchSpeed = 6f;
 	public float pitchAccel = 100f;
-	public float thrust = 100f;
+	public float MaxThrust = 100f;
+	public float MinThrust = 0f;
+	public float ThrustAccel = 1f;
+
+	private float CurThrust = 0f;
 
 	// Use this for initialization
 	void Start () {
-		
+		//Debug.Log("START");
+		CurThrust = MinThrust + ((MaxThrust - MinThrust) / 2f);
 	}
 	
 	// Update is called once per frame
@@ -45,8 +50,24 @@ public class Rotator : MonoBehaviour {
 		rb.AddTorque(transform.TransformVector(accel * rb.mass));
 		//rb.angularVelocity = transform.TransformVector(vel);
 
-		//Needs to be removed
-		float thr = Input.GetButton("Fire1") ? thrust : 0;
-		rb.AddForce(transform.forward * thr);
+		if (Input.GetButton("Fire1"))
+		{
+			//Debug.Log("INC");
+			CurThrust += Time.fixedDeltaTime * ThrustAccel;
+		}
+		else if (Input.GetButton("Fire2"))
+		{
+			//Debug.Log("DEC");
+			CurThrust -= Time.fixedDeltaTime * ThrustAccel;
+		}
+
+		if (CurThrust < MinThrust)
+			CurThrust = MinThrust;
+		else if (CurThrust > MaxThrust)
+			CurThrust = MaxThrust;
+
+		Debug.Log(CurThrust);
+			
+		rb.AddForce(transform.forward * CurThrust * Time.fixedDeltaTime, ForceMode.Force);
 	}
 }

@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0
   m_LinearFogStart: 10
-  m_LinearFogEnd: 100
+  m_LinearFogEnd: 250
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -222,6 +222,18 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: da8f198becd672143b3ddc47b15d6a6c, type: 2}
+    - target: {fileID: 400002, guid: 8a627d89daa8cf34cbcaf65adb56e28a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8a627d89daa8cf34cbcaf65adb56e28a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 8a627d89daa8cf34cbcaf65adb56e28a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a627d89daa8cf34cbcaf65adb56e28a, type: 3}
   m_IsPrefabAsset: 0
@@ -449,7 +461,9 @@ MonoBehaviour:
   rollAccel: 5
   pitchSpeed: 1.5
   pitchAccel: 5
-  thrust: 100
+  MaxThrust: 100
+  MinThrust: 0
+  ThrustAccel: 1
 --- !u!114 &279391780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,8 +1222,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002954569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.7, y: 30.1, z: -8.9}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -12.7, y: 284.6, z: -8.9}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 170376069}
   - {fileID: 1857710843}
@@ -1726,7 +1740,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961988954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.823, y: 0.9245, z: 2.492}
+  m_LocalPosition: {x: -2.97, y: 39.22, z: 2.492}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 2101415876}
@@ -1783,7 +1797,9 @@ MonoBehaviour:
   rollAccel: 10
   pitchSpeed: 150
   pitchAccel: 5
-  thrust: 0.08
+  MaxThrust: 10
+  MinThrust: 0.1
+  ThrustAccel: 2
 --- !u!114 &1961988959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,8 +1811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44150263e69f503478a758675fdcdd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeSurfaceArea: {x: 1.5, y: 3.5, z: 0.2}
-  AerodynamicConstant: 0.25
+  CubeSurfaceArea: {x: 1, y: 2.5, z: 0.35}
+  AerodynamicConstant: 0.2
   rb: {fileID: 1961988956}
 --- !u!1 &1971194124
 GameObject:
