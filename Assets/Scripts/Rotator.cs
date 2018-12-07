@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
+	public bool Activated = false;
+
 	public Rigidbody rb;
 	public float rollSpeed = 10f;
 	public float rollAccel = 100f;
@@ -30,8 +32,11 @@ public class Rotator : MonoBehaviour {
 	{
 		Vector3 targVect = new Vector3();
 
-		targVect.z = -1 * Input.GetAxisRaw("Horizontal") * rollSpeed;
-		targVect.x = Input.GetAxisRaw("Vertical") * pitchSpeed;
+		if (Activated)
+		{
+			targVect.z = -1 * Input.GetAxisRaw("Horizontal") * rollSpeed;
+			targVect.x = Input.GetAxisRaw("Vertical") * pitchSpeed;
+		}
 
         Vector3 velDiff = targVect - transform.InverseTransformVector(rb.angularVelocity);
 
@@ -50,12 +55,12 @@ public class Rotator : MonoBehaviour {
 		rb.AddTorque(transform.TransformVector(accel * rb.mass));
 		//rb.angularVelocity = transform.TransformVector(vel);
 
-		if (Input.GetButton("Fire1"))
+		if (Input.GetButton("Fire1") && Activated)
 		{
 			//Debug.Log("INC");
 			CurThrust += Time.fixedDeltaTime * ThrustAccel;
 		}
-		else if (Input.GetButton("Fire2"))
+		else if (Input.GetButton("Fire2") && Activated)
 		{
 			//Debug.Log("DEC");
 			CurThrust -= Time.fixedDeltaTime * ThrustAccel;
@@ -66,8 +71,13 @@ public class Rotator : MonoBehaviour {
 		else if (CurThrust > MaxThrust)
 			CurThrust = MaxThrust;
 
-		Debug.Log(CurThrust);
+		//Debug.Log(CurThrust);
 			
 		rb.AddForce(transform.forward * CurThrust * Time.fixedDeltaTime, ForceMode.Force);
+	}
+
+	public void Activate()
+	{
+		Activated = true;
 	}
 }
